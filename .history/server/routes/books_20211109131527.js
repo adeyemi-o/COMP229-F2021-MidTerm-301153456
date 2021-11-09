@@ -25,7 +25,7 @@ router.get('/', (req, res, next) => {
 //  GET the Book Details page in order to add a new Book
 router.get('/add', (req, res, next) => {
 
-    res.render('books/add', { title: 'Add Book' });
+    res.render('book/add', { title: 'Add Book' });
 
 });
 
@@ -53,7 +53,7 @@ router.post('/add', (req, res, next) => {
 });
 
 // GET the Book Details page in order to edit an existing Book
-router.get('/edit/:id', (req, res, next) => {
+router.get('/details/:id', (req, res, next) => {
 
     let id = req.params.id;
 
@@ -63,13 +63,13 @@ router.get('/edit/:id', (req, res, next) => {
             res.end(err);
         } else {
             //show the edit view
-            res.render('books/edit', { title: 'Edit Book', book: bookToEdit });
+            res.render('book/details', { title: 'Edit Book', book: bookToEdit });
         }
     })
 });
 
 // POST - process the information passed from the details form and update the document
-router.post('/edit/:id', (req, res, next) => {
+router.post('/details/:id', (req, res, next) => {
 
     let id = req.params.id;
 

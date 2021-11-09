@@ -23,14 +23,14 @@ router.get('/', (req, res, next) => {
 });
 
 //  GET the Book Details page in order to add a new Book
-router.get('/add', (req, res, next) => {
+router.get('/details', (req, res, next) => {
 
-    res.render('books/add', { title: 'Add Book' });
+    res.render('book/details', { title: 'Add Book' });
 
 });
 
 // POST process the Book Details page and create a new Book - CREATE
-router.post('/add', (req, res, next) => {
+router.post('/details', (req, res, next) => {
 
     let newBook = book({
         "Title": req.body.title,
@@ -63,7 +63,7 @@ router.get('/edit/:id', (req, res, next) => {
             res.end(err);
         } else {
             //show the edit view
-            res.render('books/edit', { title: 'Edit Book', book: bookToEdit });
+            res.render('book/edit', { title: 'Edit Book', book: bookToEdit });
         }
     })
 });
